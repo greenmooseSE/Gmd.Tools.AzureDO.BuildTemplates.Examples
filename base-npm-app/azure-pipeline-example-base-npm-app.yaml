@@ -1,0 +1,22 @@
+resources:
+  repositories:
+    - repository: buildTemplates
+      type: github
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
+      ref: 'refs/heads/feat/ab#172-buildSystemInNode'
+      endpoint: greenmooseSE
+
+parameters:
+  - name: paramDoCleanCheckout
+    displayName: Clean checkout.
+    type: boolean
+    default: false
+
+name: 0.0.0-TBD_$(Date:yyyyMMdd)$(Rev:.r)
+
+extends:
+  template: templates/base-npm-app.yaml@buildTemplates
+  parameters:
+    paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
+    paramTemplatesRepoName: buildTemplates
+    paramWorkingDirectory: examples/base-npm-app

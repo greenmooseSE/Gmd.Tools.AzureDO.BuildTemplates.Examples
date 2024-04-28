@@ -1,0 +1,5 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Wallaby" type="wallaby" factoryName="wallaby" focusToolWindowBeforeRun="true" configType="Automatic" configFolder="$PROJECT_DIR$" wsl="No" SmartStart="No">
+    <method v="2" />
+  </configuration>
+</component>
