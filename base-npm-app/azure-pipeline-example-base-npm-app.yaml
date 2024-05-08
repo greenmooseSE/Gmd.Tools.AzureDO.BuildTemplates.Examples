@@ -2,7 +2,7 @@ resources:
   repositories:
     - repository: buildTemplates
       type: github
-      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
       ref: 'refs/heads/feat/ab#172-buildSystemInNode'
       endpoint: greenmooseSE
 
