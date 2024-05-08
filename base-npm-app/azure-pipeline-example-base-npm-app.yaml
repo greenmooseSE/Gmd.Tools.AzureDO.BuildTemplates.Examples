@@ -19,4 +19,4 @@ extends:
   parameters:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
-    paramWorkingDirectory: examples/base-npm-app
+    paramWorkingDirectory: base-npm-app
