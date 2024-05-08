@@ -2,8 +2,8 @@ resources:
   repositories:
     - repository: buildTemplates
       type: github
-      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
-      ref: 'refs/heads/feat/ab#172-buildSystemInNode'
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
+      ref: 'refs/heads/release/0.0'
       endpoint: greenmooseSE
 
 parameters:
@@ -19,4 +19,4 @@ extends:
   parameters:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
-    paramWorkingDirectory: examples/base-npm-app
+    paramWorkingDirectory: base-npm-app
