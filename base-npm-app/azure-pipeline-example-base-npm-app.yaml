@@ -3,7 +3,7 @@ resources:
     - repository: buildTemplates
       type: github
       name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
-      ref: 'refs/heads/feat/ab#172-buildSystemInNode'
+      ref: 'refs/heads/release/0.0'
       endpoint: greenmooseSE
 
 parameters:
