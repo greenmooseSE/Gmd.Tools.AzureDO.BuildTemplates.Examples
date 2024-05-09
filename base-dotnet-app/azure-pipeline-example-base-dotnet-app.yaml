@@ -1,0 +1,22 @@
+resources:
+  repositories:
+    - repository: buildTemplates
+      type: github
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
+      ref: 'refs/heads/feat/ab#234-tmplDotnetEx'
+      endpoint: greenmooseSE
+
+parameters:
+  - name: paramDoCleanCheckout
+    displayName: Clean checkout.
+    type: boolean
+    default: false
+
+name: 0.0.0-TBD_$(Date:yyyyMMdd)$(Rev:.r)
+
+extends:
+  template: templates/base-dotnet-app.yaml@buildTemplates
+  parameters:
+    paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
+    paramTemplatesRepoName: buildTemplates
+    paramWorkingDirectory: base-dotnet-app
