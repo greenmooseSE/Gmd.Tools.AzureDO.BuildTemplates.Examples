@@ -30,4 +30,6 @@ extends:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
     paramWorkingDirectory: base-dotnet-app
+    paramSlnFile: BaseDotNetApp.sln
+
 
