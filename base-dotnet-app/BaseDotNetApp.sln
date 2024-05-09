@@ -16,9 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8A14F7B4-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{33292C93-537A-49B2-9F05-423B1CB39D18}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseDotNetApp.Tests.Common", "Test\BaseDotNetApp.Tests.Common\BaseDotNetApp.Tests.Common.csproj", "{7AEFCA31-8D77-4C56-A1E7-6277A77724F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseDotNetApp.Tests.Common", "test\BaseDotNetApp.Tests.Common\BaseDotNetApp.Tests.Common.csproj", "{7AEFCA31-8D77-4C56-A1E7-6277A77724F8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseDotNetApp.Tests.MiscTests", "Test\BaseDotNetApp.Tests.MiscTests\BaseDotNetApp.Tests.MiscTests.csproj", "{F3B87D99-CC55-465A-8ABA-E3377DD9D64A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseDotNetApp.Tests.MiscTests", "test\BaseDotNetApp.Tests.MiscTests\BaseDotNetApp.Tests.MiscTests.csproj", "{F3B87D99-CC55-465A-8ABA-E3377DD9D64A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{50C49E1A-B3A1-4B74-8F0B-4B4637AD3A27}"
 	ProjectSection(SolutionItems) = preProject
