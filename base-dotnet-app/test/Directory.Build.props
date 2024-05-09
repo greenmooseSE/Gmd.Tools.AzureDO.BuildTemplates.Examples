@@ -1,0 +1,14 @@
+<Project>
+    <PropertyGroup>
+        <ParentDirectoryBuildPropsPath>$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))</ParentDirectoryBuildPropsPath>
+    </PropertyGroup>
+    <ImportGroup>
+        <Import Project="$(ParentDirectoryBuildPropsPath)" />
+    </ImportGroup>
+
+    <PropertyGroup>
+        <!-- Do not enforce documentations for test projects -->
+        <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    </PropertyGroup>
+
+</Project>

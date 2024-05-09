@@ -1,0 +1,43 @@
+<Project>
+    <!-- Root Directory.Build.props , to include another further down in chain, use below
+        <PropertyGroup>
+            <ParentDirectoryBuildPropsPath>$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))</ParentDirectoryBuildPropsPath>
+        </PropertyGroup>
+        <ImportGroup>
+            <Import Project="$(ParentDirectoryBuildPropsPath)" />
+        </ImportGroup>
+    -->
+
+    <!-- Compile settings -->
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <!--10: .net 6-->
+        <!--12: .net 8-->
+        <Langversion>12</Langversion>
+        <!-- By default generate documentation so we don't miss out on it (for test projects we set it to false). -->
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <!-- Version data -->
+    <PropertyGroup>
+        <Company>Falco IT AB</Company>
+        <Authors>$(Company)</Authors>
+        <Copyright>Copyright © $(Company) $([System.DateTime]::Now.Year)</Copyright>
+        <Product>My Product Name</Product>
+        <Description>My Product description</Description>
+        <VersionPrefix>0.0.1</VersionPrefix>
+        <BuildNumber>123</BuildNumber>
+        <VersionSuffix>-undefined</VersionSuffix>
+        <!-- For som reason this ends up as file descripton -->
+        <AssemblyTitle>My Product Description 2</AssemblyTitle>
+        <FileVersion>$(VersionPrefix).$(BuildNumber)</FileVersion>
+        <InformationalVersion>$(VersionPrefix).$(VersionSuffix)</InformationalVersion>
+        <AssemblyVersion>$(VersionPrefix).$(BuildNumber)</AssemblyVersion>
+    </PropertyGroup>
+</Project>
