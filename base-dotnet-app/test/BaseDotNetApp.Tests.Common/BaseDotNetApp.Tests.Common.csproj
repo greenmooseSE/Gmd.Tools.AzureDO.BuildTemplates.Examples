@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+
+  <ItemGroup>
+    <PackageReference Include="Gmd.CsCommon.UnitTest" Version="0.1.1-dev-20240422T111107-11101-fba86a8" />
+  </ItemGroup>
+
+</Project>
