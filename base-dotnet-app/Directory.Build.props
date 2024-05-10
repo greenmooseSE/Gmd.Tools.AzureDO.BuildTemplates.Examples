@@ -8,9 +8,12 @@
         </ImportGroup>
     -->
 
-    <!-- Compile settings -->
-    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <PropertyGroup Label="Compile" Condition="'$(Configuration)'=='Release'">
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Package Restore">
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
 
     <PropertyGroup>
