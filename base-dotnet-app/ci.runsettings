@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <NUnit>
+        <Where>cat != LongRunningTest</Where>
+        <StopOnError>false</StopOnError>
+    </NUnit>
+</RunSettings>
