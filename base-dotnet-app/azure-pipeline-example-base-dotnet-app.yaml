@@ -20,13 +20,16 @@ trigger:
       - "master"
   paths:
     include:
-    - base-npm-app/*
-    
+    - base-dotnet-app/*
+
 name: 0.0.0-TBD_$(Date:yyyyMMdd)$(Rev:.r)
 
 extends:
-  template: templates/base-npm-app.yaml@buildTemplates
+  template: templates/base-dotnet-app.yaml@buildTemplates
   parameters:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
-    paramWorkingDirectory: base-npm-app
+    paramWorkingDirectory: base-dotnet-app
+    paramSlnFile: BaseDotNetApp.sln
+
+
