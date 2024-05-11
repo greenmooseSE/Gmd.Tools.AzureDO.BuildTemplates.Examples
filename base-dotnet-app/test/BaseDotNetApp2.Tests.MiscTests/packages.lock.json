@@ -2070,14 +2070,14 @@
         "resolved": "13.7.1",
         "contentHash": "X4m1PnFcJwvAj1sCDMntg/eZcX96CJLrWMiYnq41KqhFVZPuw63ZTSxIGqgdCwHWHvCAyTxheELC/VDf1HsU2A=="
       },
-      "basedotnetapp": {
-        "type": "Project"
-      },
       "basedotnetapp.tests.common": {
         "type": "Project",
         "dependencies": {
           "Gmd.CsCommon.UnitTest": "[0.1.1-dev-20240422T111107-11101-fba86a8, )"
         }
+      },
+      "basedotnetapp2": {
+        "type": "Project"
       }
     }
   }
