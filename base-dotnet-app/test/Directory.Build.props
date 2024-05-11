@@ -1,0 +1,21 @@
+<Project>
+    <PropertyGroup>
+        <ParentDirectoryBuildPropsPath>$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))</ParentDirectoryBuildPropsPath>
+    </PropertyGroup>
+    <ImportGroup>
+        <Import Project="$(ParentDirectoryBuildPropsPath)" />
+    </ImportGroup>
+
+    <PropertyGroup>
+        <!-- Do not enforce documentations for test projects -->
+        <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup Label="Implicit Test Packages">
+        <PackageReference Include="coverlet.collector" Version="6.0.2">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+</Project>

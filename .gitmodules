@@ -1,0 +1,4 @@
+[submodule "base-dotnet-app/submodules/Gmd.Chassi.DotNet"]
+	path = base-dotnet-app/submodules/Gmd.Chassi.DotNet
+	url = https://github.com/greenmooseSE/Gmd.Chassi.DotNet.git
+	branch = release/0.1
