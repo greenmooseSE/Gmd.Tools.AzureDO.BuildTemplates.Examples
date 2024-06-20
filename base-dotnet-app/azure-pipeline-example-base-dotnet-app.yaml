@@ -2,10 +2,10 @@ resources:
   repositories:
     - repository: buildTemplates
       type: github
-      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
-      ref: 'refs/heads/feat/ab#477-crossOrgGitSubmodules'
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
+      ref: 'refs/heads/release/0.0'
       endpoint: greenmooseSE
-      
+
 parameters:
   - name: paramDoCleanCheckout
     displayName: Clean checkout.
