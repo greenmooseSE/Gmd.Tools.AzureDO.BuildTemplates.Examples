@@ -21,7 +21,7 @@ trigger:
   paths:
     include:
     - base-npm-app/*
-    
+
 name: 0.0.0-TBD_$(Date:yyyyMMdd)$(Rev:.r)
 
 extends:
