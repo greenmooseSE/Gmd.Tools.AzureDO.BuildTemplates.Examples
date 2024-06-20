@@ -2,3 +2,7 @@
 	path = base-dotnet-app/submodules/Gmd.Chassi.DotNet
 	url = https://github.com/greenmooseSE/Gmd.Chassi.DotNet.git
 	branch = release/0.1
+[submodule "base-npm-app/submodules/Gmd.TsCommon.Utils"]
+	path = base-npm-app/submodules/Gmd.TsCommon.Utils
+	url = https://github.com/greenmooseSE/Gmd.TsCommon.Utils.git
+	branch = release/0.0
