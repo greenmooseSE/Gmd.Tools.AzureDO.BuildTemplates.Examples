@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run clean && ts-node submodules/Gmd.TsCommon.Utils/src/mergePackageJson.ts && npm i",
     "postbuild": "rm dist/*.js",
     "test:ci": "jest --config jest.config.ci.ts",
     "test:nowatch": "jest",

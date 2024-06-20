@@ -5,4 +5,4 @@
 [submodule "base-npm-app/submodules/Gmd.TsCommon.Utils"]
 	path = base-npm-app/submodules/Gmd.TsCommon.Utils
 	url = https://github.com/greenmooseSE/Gmd.TsCommon.Utils.git
-	branch = release/0.0
+	branch = "feat/ab#477-crossOrgGitSubmodules"
