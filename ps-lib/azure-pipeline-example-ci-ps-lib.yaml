@@ -1,0 +1,32 @@
+resources:
+  repositories:
+    - repository: buildTemplates
+      type: github
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
+      ref: 'refs/heads/feat/ab#503-ciCdStrategyPs'
+      endpoint: greenmooseSE
+
+parameters:
+  - name: paramDoCleanCheckout
+    displayName: Clean checkout.
+    type: boolean
+    default: false
+
+trigger:
+  branches:
+    include:
+      - "*"
+    exclude:
+      - "master"
+  paths:
+    include:
+    - ps-lib/*
+    
+name: $(majorMinorVer).$(patchVer)$(buildIdSeparator)$(Date:yyyyMMdd\THHmm)$(Rev:rr)
+
+extends:
+  template: templates/base-ci-ps-lib.yaml@buildTemplates
+  parameters:
+    paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
+    paramTemplatesRepoName: buildTemplates
+    paramWorkingDirectory: ps-lib
