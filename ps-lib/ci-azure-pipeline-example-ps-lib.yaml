@@ -30,3 +30,5 @@ extends:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
     paramWorkingDirectory: ps-lib
+    paramEnvVarsForTestTask:
+      EnvKey1: EnvVal1
