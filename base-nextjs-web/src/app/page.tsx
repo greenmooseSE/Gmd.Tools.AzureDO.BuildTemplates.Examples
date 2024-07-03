@@ -19,6 +19,18 @@ export default function Home() {
   }
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      {/* outer div responsible of setting width, inner div uses bottom padding full to preserve aspect ratio of image */}
+      <div className="relative  min-w-20 sm:w-60 md:w-80 lg:w-100 xl:w-120 2xl:w-200 border-red-400 border-3">
+        <div className="relative min-h-20 pb-full sm:pb-60 md:pb-80 lg:pb-100 xl:pb-120 2xl:pb-200 border-green-200 border-2">
+          <Image
+              className="border-2 rounded-full"
+              src="/images/profile-picture.jpeg"
+              fill
+              alt="Rounded avatar"
+          />
+        </div>
+      </div>
+
       <div className="flex justify-center border-0 w-full text-center ">
         <div className="w-1/3 text-xl font-mono ">
           <p className={`border-2 rounded-2xl bg-gradient-to-b  ${envClass} `} >
