@@ -2,8 +2,8 @@ resources:
   repositories:
     - repository: buildTemplates
       type: github
-      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
-      ref: 'refs/heads/release/0.0'
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
+      ref: 'refs/heads/feat/ab#351-cdCiForNextJsApp'
       endpoint: greenmooseSE
 
 parameters:
@@ -20,15 +20,15 @@ trigger:
       - "master"
   paths:
     include:
-    - ps-lib/*
+    - base-nextjs-web/*
     
 name: $(BuildName)$(Rev:rr)
 
 extends:
-  template: templates/base-ci-ps-lib.yaml@buildTemplates
+  template: templates/base-ci-web-nextjs.yaml@buildTemplates
   parameters:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
-    paramWorkingDirectory: ps-lib
+    paramWorkingDirectory: base-nextjs-web
     paramEnvVarsForTestTask:
       EnvKey1: EnvVal1
