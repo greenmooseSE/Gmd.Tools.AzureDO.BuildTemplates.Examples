@@ -3,7 +3,7 @@ resources:
     - repository: buildTemplates
       type: github
       name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
-      ref: 'refs/heads/feat/ab#503-ciCdStrategyPs'
+      ref: 'refs/heads/feat/ab#351-cdCiForNextJsApp'
       endpoint: greenmooseSE
 
 parameters:
@@ -36,10 +36,13 @@ extends:
   template: templates/base-cd.yaml@buildTemplates
   parameters:
     paramTemplatesRepoName: buildTemplates
-    paramDeploymentType: none
+    paramDeploymentType: ftp
     # paramEnvVarsForTestTask:
     #   AzDoApiPAT_Tests: $(AzDoApiPAT_Tests)
     paramBuildNameToDeployToDev: ${{ parameters.paramBuildNameToDeployToDev }}
     paramDeployProd: ${{ parameters.paramDeployProd }}
-    paramPipelineDefinitionId: 79
-    paramCiHasArtifacts: false
+    # 72 - pushbucket, 79 - origin
+    paramPipelineDefinitionId: 72
+    paramCiHasArtifacts: true
+    paramVariableGroupNames:
+      - gmd-dev-nextjsex
