@@ -33,5 +33,7 @@ extends:
     paramTemplatesRepoName: buildTemplates
     paramWorkingDirectory: base-nextjs-web
     paramNodeAppType: nextJs
+    paramPublishBuildArtifacts: true
+    paramNodeVersion: 20
     # paramEnvVarsForTestTask:
     #   EnvKey1: EnvVal1
