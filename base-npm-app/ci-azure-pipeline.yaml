@@ -3,7 +3,7 @@ resources:
     - repository: buildTemplates
       type: github
       name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
-      ref: 'refs/heads/release/0.0'
+      ref: 'refs/heads/feat/ab#351-cdCiForNextJsApp'
       endpoint: greenmooseSE
 
 parameters:
@@ -21,12 +21,15 @@ trigger:
   paths:
     include:
     - base-npm-app/*
+    exclude:
+    - '**/cd-*.yaml'
     
-name: 0.0.0-TBD_$(Date:yyyyMMdd)$(Rev:.r)
+name: $(BuildName)$(Rev:rr)
 
 extends:
-  template: templates/base-npm-app.yaml@buildTemplates
+  template: templates/base-ci-node.yaml@buildTemplates
   parameters:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
     paramWorkingDirectory: base-npm-app
+    paramNodeAppType: general
