@@ -41,5 +41,5 @@ extends:
     #   AzDoApiPAT_Tests: $(AzDoApiPAT_Tests)
     paramBuildNameToDeployToDev: ${{ parameters.paramBuildNameToDeployToDev }}
     paramDeployProd: ${{ parameters.paramDeployProd }}
-    paramPipelineDefinitionId: 58
+    paramPipelineDefinitionId: 79
     paramCiHasArtifacts: false
