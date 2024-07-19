@@ -21,14 +21,17 @@ trigger:
   paths:
     include:
     - base-nextjs-web/*
+    exclude:
+    - '**/cd-*.yaml'
     
 name: $(BuildName)$(Rev:rr)
 
 extends:
-  template: templates/base-ci-web-nextjs.yaml@buildTemplates
+  template: templates/base-ci-node.yaml@buildTemplates
   parameters:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
     paramWorkingDirectory: base-nextjs-web
-    paramEnvVarsForTestTask:
-      EnvKey1: EnvVal1
+    paramNodeAppType: nextJs
+    # paramEnvVarsForTestTask:
+    #   EnvKey1: EnvVal1
