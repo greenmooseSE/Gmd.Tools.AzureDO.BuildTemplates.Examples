@@ -1,11 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    //So we can use @injectable()
+    /* Enable experimental support for legacy experimental decorators. */
+    "experimentalDecorators": true,
+    /* Emit design-type metadata for decorated declarations in source files. */
+    "emitDecoratorMetadata": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,

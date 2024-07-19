@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "prebuild": "node -e \"try { require('sharp') } catch(e) { console.error('sharp module not found'); process.exit(1) }\"",
+    "prebuild": "node -e \"try { require('sharp') } catch(e) { console.error('sharp module not found'); process.exit(1) }\" && ts-node submodules/Gmd.TsCommon.Utils/src/mergePackageJson.ts && npm i",
     "dev": "cross-env TEST_LOG_LEVEL='Debug' next dev ",
     "build": "tsc",
     "build:next": "next build",
@@ -11,7 +11,7 @@
     "lint": "next lint",
     "test": "cross-env TEST_LOG_LEVEL='Info' SERVER_LOG_LEVEL='Info' jest --config jest.config.ts",
     "test:ci": "cross-env TEST_LOG_LEVEL='Info' SERVER_LOG_LEVEL='Info' jest --config jest.config.ci.ts",
-    "test:watch": "cross-env TEST_LOG_LEVEL='Info' SERVER_LOG_LEVEL='Info' jest --config jest.config.ts --watch"
+    "test:watch": "cross-env TEST_LOG_LEVEL='Info' SERVER_LOG_LEVEL='Info' jest --config jest.config.ts --watch-all"
   },
   "dependencies": {
     "next": "14.2.4",
