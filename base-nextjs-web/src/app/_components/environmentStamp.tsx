@@ -6,7 +6,7 @@ export default function EnvironmentStamp() {
     let environmentStr = '?', envClass = '';
     if (env.isEnvDev) {
         environmentStr = 'DEV';
-        environmentStr = 'bg-green-200 bg-opacity-40';
+        envClass = 'bg-green-200 bg-opacity-40';
     } else if (env.isEnvStaging) {
         environmentStr = 'STAGING';
         envClass = 'bg-yellow-200 bg-opacity-80';

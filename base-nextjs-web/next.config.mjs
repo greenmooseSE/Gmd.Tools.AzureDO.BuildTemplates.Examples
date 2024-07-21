@@ -8,7 +8,7 @@ const nextConfig = {
     basePath: '',
     // Specifies the base path for serving static assets, useful when serving assets from a CDN.
     assetPrefix: '',
-    publicRuntimeConfig: {
+    env: {
         environment: process.env.environment
     }
 };

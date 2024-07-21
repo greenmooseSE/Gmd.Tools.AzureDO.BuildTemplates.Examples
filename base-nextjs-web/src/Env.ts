@@ -1,7 +1,7 @@
 ﻿import publicRuntimeConfig from "@/nextRuntimeConfig";
 
 export class Env {
-    readonly isEnvDev: boolean = publicRuntimeConfig?.environment === 'dev';
-    readonly isEnvStaging: boolean = publicRuntimeConfig?.environment === 'staging';
-    readonly isEnvProd: boolean = publicRuntimeConfig?.environment === 'production';
+    readonly isEnvDev: boolean = process.env.environment === 'dev';
+    readonly isEnvStaging: boolean = process.env.environment === 'staging';
+    readonly isEnvProd: boolean = process.env.environment === 'production';
 }

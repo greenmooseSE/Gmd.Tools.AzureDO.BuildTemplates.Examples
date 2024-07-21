@@ -21,14 +21,14 @@ pr: none
 trigger:
   branches:
     exclude:
-    - '*'
+      - '*'
   tags:
     include:
-    - 'rc-*'
+      - 'rc-*'
   paths:
     exclude:
       - ci-*.yaml
-    
+
 # name: $(BuildNameBeforeTimestamp)$(Date:yyyyMMdd\THHmm)$(Rev:rr)
 name: $(BuildName)$(Rev:+rr)
 
@@ -46,3 +46,4 @@ extends:
     paramCiHasArtifacts: true
     paramVariableGroupNames:
       - gmd-dev-nextjsex
+    paramCiArtifactType: node
