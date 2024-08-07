@@ -2,8 +2,8 @@ resources:
   repositories:
     - repository: buildTemplates
       type: github
-      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
-      ref: 'refs/heads/feat/ab#351-cdCiForNextJsApp'
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
+      ref: 'refs/heads/release/0.0'
       endpoint: greenmooseSE
 
 parameters:
