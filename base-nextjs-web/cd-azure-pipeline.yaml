@@ -44,5 +44,5 @@ extends:
     paramPipelineDefinitionId: 72
     paramCiHasArtifacts: true
     paramVariableGroupNames:
-      - gmd-dev-nextjsex
+      - 'gmd-<env>-nextjsex'
     paramCiArtifactType: node
