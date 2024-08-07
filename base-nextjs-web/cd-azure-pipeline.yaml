@@ -16,7 +16,6 @@ parameters:
     type: boolean
     default: false
 
-
 pr: none
 trigger:
   branches:

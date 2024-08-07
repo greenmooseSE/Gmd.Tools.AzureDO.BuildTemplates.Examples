@@ -3,12 +3,6 @@ import userEvent from '@testing-library/user-event';
 import Home from "@/app/page";
 import Ensure from "../../submodules/Gmd.TsCommon.Utils/src/ensure";
 
-jest.mock('next/config', () => () => ({
-    publicRuntimeConfig: {
-        environment: 'dev',
-        // add other env variables if any
-    },
-}));
 describe('<Home />', () => {
 
     test('renders profile picture', () => {

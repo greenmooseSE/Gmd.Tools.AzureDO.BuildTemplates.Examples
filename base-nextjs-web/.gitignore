@@ -20,6 +20,10 @@ junit.xml
 # misc
 .DS_Store
 *.pem
+iisnode/
+
+# We auto generate web.config upon deploy
+/web.config
 
 # debug
 npm-debug.log*

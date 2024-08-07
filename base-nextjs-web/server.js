@@ -1,28 +1,6 @@
 ﻿const {createServer} = require('http')
 const {parse} = require('url')
 const next = require('next')
-const fs = require('fs');
-
-// Read the config file
-let data = fs.readFileSync("config.json", {encoding: "utf-8"});
-// Strip BOM if it exists
-if (data.charCodeAt(0) === 0xFEFF) {
-    data = data.substring(1);
-}
-const configData = JSON.parse(data);
-
-// Set environment variables
-const configKeys = Object.keys(configData);
-configKeys.forEach((key) => {
-    if (!key.endsWith(".doc")) {
-        let value = "";
-        if (!key.endsWith(".secret")) {
-            value = ` = '${configData[key]}'`;
-        }
-        console.log(`Setting env key '${key}'${value}.`);
-    }
-    process.env[key] = configData[key];
-});
 
 const dev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 3000;
