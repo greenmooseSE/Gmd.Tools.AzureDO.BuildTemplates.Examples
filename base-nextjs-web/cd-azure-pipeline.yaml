@@ -21,14 +21,20 @@ trigger:
   branches:
     exclude:
       - '*'
-  tags:
-    include:
-      - 'rc-*'
-  paths:
-    exclude:
-      - ci-*.yaml
+  
+  # Since tags are shared for all projects in this repo, we do not automatically want to trigger a RC build.
+  # (Tag triggers are not considering the paths setting)
+  # tags:
+  #   include:
+  #     - 'rc-*'
 
-# name: $(BuildNameBeforeTimestamp)$(Date:yyyyMMdd\THHmm)$(Rev:rr)
+  # Paths are only considered for branches, not tags, so no point in using these since we exclude all branches for CD.
+  # paths:
+  #   include:
+  #     - 'base-nextjs-web'
+  #   exclude:
+  #     - '**/ci-*.yaml'
+
 name: $(BuildName)$(Rev:+rr)
 
 extends:

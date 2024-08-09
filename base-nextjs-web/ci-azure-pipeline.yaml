@@ -20,9 +20,9 @@ trigger:
       - "master"
   paths:
     include:
-    - base-nextjs-web/*
+      - 'base-nextjs-web/*'
     exclude:
-    - '**/cd-*.yaml'
+      - '**/cd-*.yaml'
     
 name: $(BuildName)$(Rev:rr)
 
