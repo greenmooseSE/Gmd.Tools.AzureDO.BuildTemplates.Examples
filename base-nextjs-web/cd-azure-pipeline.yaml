@@ -41,7 +41,7 @@ extends:
     paramBuildNameToDeployToDev: ${{ parameters.paramBuildNameToDeployToDev }}
     paramDeployProd: ${{ parameters.paramDeployProd }}
     # 72 - pushbucket, 79 - origin
-    paramPipelineDefinitionId: 72
+    paramPipelineDefinitionId: 79
     paramCiHasArtifacts: true
     paramVariableGroupNames:
       - 'gmd-<env>-nextjsex'
