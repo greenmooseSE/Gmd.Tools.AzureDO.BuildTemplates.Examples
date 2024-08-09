@@ -2,8 +2,8 @@ resources:
   repositories:
     - repository: buildTemplates
       type: github
-      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
-      ref: 'refs/heads/feat/ab#503-ciCdStrategyPs'
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
+      ref: 'refs/heads/release/0.0'
       endpoint: greenmooseSE
 
 parameters:
@@ -22,7 +22,7 @@ trigger:
     include:
     - ps-lib/*
     
-name: $(majorMinorVer).$(patchVer)$(buildIdSeparator)$(Date:yyyyMMdd\THHmm)$(Rev:rr)
+name: $(BuildName)$(Rev:rr)
 
 extends:
   template: templates/base-ci-ps-lib.yaml@buildTemplates
@@ -30,3 +30,5 @@ extends:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
     paramWorkingDirectory: ps-lib
+    paramEnvVarsForTestTask:
+      EnvKey1: EnvVal1

@@ -1,0 +1,4 @@
+{
+  "environment.doc": "dev, staging or production",
+  "environment": "staging"
+}

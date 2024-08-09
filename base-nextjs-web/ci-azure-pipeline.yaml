@@ -20,13 +20,20 @@ trigger:
       - "master"
   paths:
     include:
-    - base-npm-app/*
+      - 'base-nextjs-web/*'
+    exclude:
+      - '**/cd-*.yaml'
     
-name: 0.0.0-TBD_$(Date:yyyyMMdd)$(Rev:.r)
+name: $(BuildName)$(Rev:rr)
 
 extends:
-  template: templates/base-npm-app.yaml@buildTemplates
+  template: templates/base-ci-node.yaml@buildTemplates
   parameters:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
-    paramWorkingDirectory: base-npm-app
+    paramWorkingDirectory: base-nextjs-web
+    paramNodeAppType: nextJs
+    paramPublishBuildArtifacts: true
+    paramNodeVersion: 20
+    # paramEnvVarsForTestTask:
+    #   EnvKey1: EnvVal1
