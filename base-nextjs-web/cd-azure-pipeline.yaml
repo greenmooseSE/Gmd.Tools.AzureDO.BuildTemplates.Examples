@@ -1,0 +1,54 @@
+resources:
+  repositories:
+    - repository: buildTemplates
+      type: github
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
+      ref: 'refs/heads/release/0.0'
+      endpoint: greenmooseSE
+
+parameters:
+  - name: paramBuildNameToDeployToDev
+    displayName: Deploy to Dev, a specific CI build as identified by its build number.
+    type: string
+    default: " "
+  - name: paramDeployProd
+    displayName: Deploy specified rc-tag to production.
+    type: boolean
+    default: false
+
+pr: none
+trigger:
+  branches:
+    exclude:
+      - '*'
+  
+  # Since tags are shared for all projects in this repo, we do not automatically want to trigger a RC build.
+  # (Tag triggers are not considering the paths setting)
+  # tags:
+  #   include:
+  #     - 'rc-*'
+
+  # Paths are only considered for branches, not tags, so no point in using these since we exclude all branches for CD.
+  # paths:
+  #   include:
+  #     - 'base-nextjs-web'
+  #   exclude:
+  #     - '**/ci-*.yaml'
+
+name: $(BuildName)$(Rev:+rr)
+
+extends:
+  template: templates/base-cd.yaml@buildTemplates
+  parameters:
+    paramTemplatesRepoName: buildTemplates
+    paramDeploymentType: ftp
+    # paramEnvVarsForTestTask:
+    #   AzDoApiPAT_Tests: $(AzDoApiPAT_Tests)
+    paramBuildNameToDeployToDev: ${{ parameters.paramBuildNameToDeployToDev }}
+    paramDeployProd: ${{ parameters.paramDeployProd }}
+    # 72 - pushbucket, 79 - origin
+    paramPipelineDefinitionId: 79
+    paramCiHasArtifacts: true
+    paramVariableGroupNames:
+      - 'gmd-<env>-nextjsex'
+    paramCiArtifactType: node

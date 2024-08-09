@@ -6,3 +6,7 @@
 	path = base-npm-app/submodules/Gmd.TsCommon.Utils
 	url = https://github.com/greenmooseSE/Gmd.TsCommon.Utils.git
 	branch = release/0.0
+[submodule "base-nextjs-web/submodules/Gmd.TsCommon.Utils"]
+	path = base-nextjs-web/submodules/Gmd.TsCommon.Utils
+	url = https://github.com/greenmooseSE/Gmd.TsCommon.Utils.git
+	branch = release/0.0

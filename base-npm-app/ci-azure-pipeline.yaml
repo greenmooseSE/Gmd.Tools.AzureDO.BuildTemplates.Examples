@@ -20,15 +20,16 @@ trigger:
       - "master"
   paths:
     include:
-    - ps-lib/*
+    - base-npm-app/*
+    exclude:
+    - '**/cd-*.yaml'
     
 name: $(BuildName)$(Rev:rr)
 
 extends:
-  template: templates/base-ci-ps-lib.yaml@buildTemplates
+  template: templates/base-ci-node.yaml@buildTemplates
   parameters:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
-    paramWorkingDirectory: ps-lib
-    paramEnvVarsForTestTask:
-      EnvKey1: EnvVal1
+    paramWorkingDirectory: base-npm-app
+    paramNodeAppType: general

@@ -1,8 +1,12 @@
-// jest.config.ci.ts
-import type {Config} from '@jest/types';
+import type {Config} from 'jest';
 import base from './jest.config.base';
+import nextJest from "next/jest";
 
-const config: Config.InitialOptions = {
+const createJestConfig = nextJest({
+    // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+    dir: './',
+})
+const config: Config = {
     ...base,
     collectCoverage: true,
     // The directory where Jest should output its coverage files
@@ -22,5 +26,5 @@ const config: Config.InitialOptions = {
     maxWorkers: 1,
 
 };
-
-export default config;
+// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+export default createJestConfig(config)
