@@ -2,8 +2,8 @@ resources:
   repositories:
     - repository: buildTemplates
       type: github
-      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
-      ref: 'refs/heads/feat/ab#172-buildSystemInNode'
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
+      ref: 'refs/heads/release/0.0'
       endpoint: greenmooseSE
 
 parameters:
@@ -12,11 +12,24 @@ parameters:
     type: boolean
     default: false
 
+trigger:
+  branches:
+    include:
+      - "*"
+    exclude:
+      - "master"
+  paths:
+    include:
+    - base-dotnet-app/*
+
 name: 0.0.0-TBD_$(Date:yyyyMMdd)$(Rev:.r)
 
 extends:
-  template: templates/base-npm-app.yaml@buildTemplates
+  template: templates/base-dotnet-app.yaml@buildTemplates
   parameters:
     paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
     paramTemplatesRepoName: buildTemplates
-    paramWorkingDirectory: examples/base-npm-app
+    paramWorkingDirectory: base-dotnet-app
+    paramSlnFile: BaseDotNetApp.sln
+
+

@@ -1,0 +1,34 @@
+resources:
+  repositories:
+    - repository: buildTemplates
+      type: github
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
+      ref: 'refs/heads/release/0.0'
+      endpoint: greenmooseSE
+
+parameters:
+  - name: paramDoCleanCheckout
+    displayName: Clean checkout.
+    type: boolean
+    default: false
+
+trigger:
+  branches:
+    include:
+      - "*"
+    exclude:
+      - "master"
+  paths:
+    include:
+    - ps-lib/*
+    
+name: $(BuildName)$(Rev:rr)
+
+extends:
+  template: templates/base-ci-ps-lib.yaml@buildTemplates
+  parameters:
+    paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
+    paramTemplatesRepoName: buildTemplates
+    paramWorkingDirectory: ps-lib
+    paramEnvVarsForTestTask:
+      EnvKey1: EnvVal1

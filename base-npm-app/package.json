@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run clean && ts-node submodules/Gmd.TsCommon.Utils/src/mergePackageJson.ts && npm i",
     "postbuild": "rm dist/*.js",
     "test:ci": "jest --config jest.config.ci.ts",
     "test:nowatch": "jest",
-    "test": "jest --watch",
+    "test": "jest --watch-all",
     "build": "tsc"
   },
   "keywords": [],
@@ -24,6 +24,7 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.7",
     "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
     "rimraf": "^5.0.5",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",

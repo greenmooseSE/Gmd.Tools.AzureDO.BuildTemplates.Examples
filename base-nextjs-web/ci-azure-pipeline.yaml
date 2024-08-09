@@ -1,0 +1,39 @@
+resources:
+  repositories:
+    - repository: buildTemplates
+      type: github
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
+      ref: 'refs/heads/release/0.0'
+      endpoint: greenmooseSE
+
+parameters:
+  - name: paramDoCleanCheckout
+    displayName: Clean checkout.
+    type: boolean
+    default: false
+
+trigger:
+  branches:
+    include:
+      - "*"
+    exclude:
+      - "master"
+  paths:
+    include:
+      - 'base-nextjs-web/*'
+    exclude:
+      - '**/cd-*.yaml'
+    
+name: $(BuildName)$(Rev:rr)
+
+extends:
+  template: templates/base-ci-node.yaml@buildTemplates
+  parameters:
+    paramDoCleanCheckout: ${{ parameters.paramDoCleanCheckout }}
+    paramTemplatesRepoName: buildTemplates
+    paramWorkingDirectory: base-nextjs-web
+    paramNodeAppType: nextJs
+    paramPublishBuildArtifacts: true
+    paramNodeVersion: 20
+    # paramEnvVarsForTestTask:
+    #   EnvKey1: EnvVal1
