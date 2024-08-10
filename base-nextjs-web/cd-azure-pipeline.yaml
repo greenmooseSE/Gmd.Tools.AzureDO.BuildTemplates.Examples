@@ -50,5 +50,5 @@ extends:
     paramPipelineDefinitionId: 79
     paramCiHasArtifacts: true
     paramVariableGroupNames:
-      - 'gmd-<env>-nextjsex'
+      - 'gmd-exampleNextJs-<env>'
     paramCiArtifactType: node
