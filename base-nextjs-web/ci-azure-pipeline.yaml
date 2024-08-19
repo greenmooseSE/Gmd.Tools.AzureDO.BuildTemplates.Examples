@@ -3,7 +3,7 @@ resources:
     - repository: buildTemplates
       type: github
       name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
-      ref: 'refs/heads/release/0.0'
+      ref: "refs/heads/release/0.0"
       endpoint: greenmooseSE
 
 parameters:
@@ -20,10 +20,10 @@ trigger:
       - "master"
   paths:
     include:
-      - 'base-nextjs-web/*'
+      - "base-nextjs-web/*"
     exclude:
-      - '**/cd-*.yaml'
-    
+      - "**/cd-*.yaml"
+
 name: $(BuildName)$(Rev:rr)
 
 extends:
