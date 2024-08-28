@@ -18,10 +18,15 @@ trigger:
       - "*"
     exclude:
       - "master"
+  tags:
+    include:
+      - rc-*
   paths:
     include:
     - ps-lib/*
-    
+    exclude:
+      - "**/cd-*.yaml"
+
 name: $(BuildName)$(Rev:rr)
 
 extends:

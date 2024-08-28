@@ -3,8 +3,23 @@ resources:
     - repository: buildTemplates
       type: github
       name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
-      ref: 'refs/heads/feat/ab#503-ciCdStrategyPs'
+      ref: "refs/heads/bug/ab#574-cdRcFailsWithCiDep"
       endpoint: greenmooseSE
+
+  pipelines:
+    - pipeline: ci-pipeline
+      # source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.ps-lib"
+      source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.PushBucket.ps-lib"
+      trigger:
+        branches:
+          # We can also use resources.triggeringAlias, if we want CD to trigger on every CI triggered build.
+          # - resources.triggeringAlias
+          - refs/tags/rc-*
+          - refs/heads/feat/*
+          - refs/heads/bug/*
+
+# Only trigger with pipeline resource trigger
+trigger: none
 
 parameters:
   - name: paramBuildNameToDeployToDev
@@ -16,20 +31,21 @@ parameters:
     type: boolean
     default: false
 
-
 pr: none
-trigger:
-  branches:
-    exclude:
-    - '*'
-  tags:
-    include:
-    - 'rc-*'
-  paths:
-    exclude:
-      - ci-*.yaml
-    
-# name: $(BuildNameBeforeTimestamp)$(Date:yyyyMMdd\THHmm)$(Rev:rr)
+
+# Since tags are shared for all projects in this repo, we do not automatically want to trigger a RC build.
+# (Tag triggers are not considering the paths setting)
+# tags:
+#   include:
+#     - 'rc-*'
+
+# Paths are only considered for branches, not tags, so no point in using these since we exclude all branches for CD.
+# paths:
+#   include:
+#     - 'ps-lib/*'
+#   exclude:
+#     - '**/ci-*.yaml'
+
 name: $(BuildName)$(Rev:+rr)
 
 extends:
@@ -41,5 +57,9 @@ extends:
     #   AzDoApiPAT_Tests: $(AzDoApiPAT_Tests)
     paramBuildNameToDeployToDev: ${{ parameters.paramBuildNameToDeployToDev }}
     paramDeployProd: ${{ parameters.paramDeployProd }}
-    paramPipelineDefinitionId: 58
+    # 57 - pushbucket, 58 - origin
+    paramPipelineDefinitionId: 57
     paramCiHasArtifacts: false
+    paramVariableGroupNames:
+      - "gmd-examplePsLib-<env>"
+    paramCiPipelineResourceName: ci-pipeline
