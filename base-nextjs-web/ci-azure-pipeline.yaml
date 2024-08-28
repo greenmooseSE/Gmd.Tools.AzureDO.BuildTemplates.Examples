@@ -18,6 +18,9 @@ trigger:
       - "*"
     exclude:
       - "master"
+  tags:
+    include:
+      - rc-*
   paths:
     include:
       - "base-nextjs-web/*"
