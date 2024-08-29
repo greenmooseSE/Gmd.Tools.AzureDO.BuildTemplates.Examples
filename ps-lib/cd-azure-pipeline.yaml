@@ -2,14 +2,14 @@ resources:
   repositories:
     - repository: buildTemplates
       type: github
-      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
-      ref: "refs/heads/bug/ab#574-cdRcFailsWithCiDep"
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
+      ref: "refs/heads/release/0.0"
       endpoint: greenmooseSE
 
   pipelines:
     - pipeline: ci-pipeline
-      # source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.ps-lib"
-      source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.PushBucket.ps-lib"
+      source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.ps-lib"
+      # source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.PushBucket.ps-lib"
       trigger:
         branches:
           # We can also use resources.triggeringAlias, if we want CD to trigger on every CI triggered build.
@@ -58,7 +58,7 @@ extends:
     paramBuildNameToDeployToDev: ${{ parameters.paramBuildNameToDeployToDev }}
     paramDeployProd: ${{ parameters.paramDeployProd }}
     # 57 - pushbucket, 58 - origin
-    paramPipelineDefinitionId: 57
+    paramPipelineDefinitionId: 58
     paramCiHasArtifacts: false
     paramVariableGroupNames:
       - "gmd-examplePsLib-<env>"

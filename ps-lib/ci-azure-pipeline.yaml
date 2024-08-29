@@ -3,7 +3,7 @@ resources:
     - repository: buildTemplates
       type: github
       name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
-      ref: 'refs/heads/release/0.0'
+      ref: "refs/heads/release/0.0"
       endpoint: greenmooseSE
 
 parameters:
@@ -15,15 +15,21 @@ parameters:
 trigger:
   branches:
     include:
-      - "*"
-    exclude:
-      - "master"
-  tags:
-    include:
-      - rc-*
+      - refs/heads/feat/*
+      - refs/heads/bug/*
+      - refs/heads/release/*
+    # exclude:
+    #   - "master"
+
+  # To avoid all apps in this multi-repo to trigger upon rc-tags, we only allow manual trigger for tags.
+  # tags:
+  #   include:
+  #     - rc-*
+
+  #Note that paths are not considered for tags per se, but we keep to see if it works with using tags in branches filter instead. See https://learn.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml#tags
   paths:
     include:
-    - ps-lib/*
+      - ps-lib/*
     exclude:
       - "**/cd-*.yaml"
 

@@ -2,14 +2,14 @@ resources:
   repositories:
     - repository: buildTemplates
       type: github
-      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates.PushBucket
-      ref: "refs/heads/bug/ab#574-cdRcFailsWithCiDep"
+      name: greenmooseSE/Gmd.Tools.AzureDO.BuildTemplates
+      ref: "refs/heads/release/0.0"
       endpoint: greenmooseSE
 
   pipelines:
     - pipeline: ci-pipeline
-      # source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.nextjs-web"
-      source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.PushBucket.nextjs-web"
+      source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.nextjs-web"
+      # source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.PushBucket.nextjs-web"
       trigger:
         branches:
           # We can also use resources.triggeringAlias, if we want CD to trigger on every CI triggered build.
@@ -32,10 +32,6 @@ parameters:
     default: false
 
 pr: none
-# trigger:
-#   branches:
-#     exclude:
-#       - "*"
 
 # Since tags are shared for all projects in this repo, we do not automatically want to trigger a RC build.
 # (Tag triggers are not considering the paths setting)
@@ -62,7 +58,7 @@ extends:
     paramBuildNameToDeployToDev: ${{ parameters.paramBuildNameToDeployToDev }}
     paramDeployProd: ${{ parameters.paramDeployProd }}
     # 72 - pushbucket, 79 - origin
-    paramPipelineDefinitionId: 72
+    paramPipelineDefinitionId: 79
     paramCiHasArtifacts: true
     paramVariableGroupNames:
       - "gmd-exampleNextJs-<env>"
