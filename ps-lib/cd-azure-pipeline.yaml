@@ -8,8 +8,8 @@ resources:
 
   pipelines:
     - pipeline: ci-pipeline
-      source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.nextjs-web"
-      # source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.PushBucket.nextjs-web"
+      source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.ps-lib"
+      # source: "CI.Gmd.Tools.AzureDO.BuildTemplates.Examples.PushBucket.ps-lib"
       trigger:
         branches:
           # We can also use resources.triggeringAlias, if we want CD to trigger on every CI triggered build.
@@ -42,7 +42,7 @@ pr: none
 # Paths are only considered for branches, not tags, so no point in using these since we exclude all branches for CD.
 # paths:
 #   include:
-#     - 'base-nextjs-web'
+#     - 'ps-lib/*'
 #   exclude:
 #     - '**/ci-*.yaml'
 
@@ -52,15 +52,14 @@ extends:
   template: templates/base-cd.yaml@buildTemplates
   parameters:
     paramTemplatesRepoName: buildTemplates
-    paramDeploymentType: ftp
+    paramDeploymentType: none
     # paramEnvVarsForTestTask:
     #   AzDoApiPAT_Tests: $(AzDoApiPAT_Tests)
     paramBuildNameToDeployToDev: ${{ parameters.paramBuildNameToDeployToDev }}
     paramDeployProd: ${{ parameters.paramDeployProd }}
-    # 72 - pushbucket, 79 - origin
-    paramPipelineDefinitionId: 79
-    paramCiHasArtifacts: true
+    # 57 - pushbucket, 58 - origin
+    paramPipelineDefinitionId: 58
+    paramCiHasArtifacts: false
     paramVariableGroupNames:
-      - "gmd-exampleNextJs-<env>"
-    paramCiArtifactType: node
+      - "gmd-examplePsLib-<env>"
     paramCiPipelineResourceName: ci-pipeline

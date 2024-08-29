@@ -15,9 +15,18 @@ parameters:
 trigger:
   branches:
     include:
-      - "*"
-    exclude:
-      - "master"
+      - refs/heads/feat/*
+      - refs/heads/bug/*
+      - refs/heads/release/*
+    # exclude:
+    #   - "master"
+
+  # To avoid all apps in this multi-repo to trigger upon rc-tags, we only allow manual trigger for tags.
+  # tags:
+  #   include:
+  #     - rc-*
+
+  #Note that paths are not considered for tags, no matter if they are part of branches: or tags: sections.
   paths:
     include:
       - "base-nextjs-web/*"
