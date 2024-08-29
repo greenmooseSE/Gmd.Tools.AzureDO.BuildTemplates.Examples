@@ -1,35 +1,41 @@
-﻿import {render, screen} from '@testing-library/react';
+﻿import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Home from "@/app/page";
 import Ensure from "../../submodules/Gmd.TsCommon.Utils/src/ensure";
 
-describe('<Home />', () => {
+describe('<Home />',  () => {
 
-    test('renders profile picture', () => {
+    test('renders profile picture', async () => {
         render(<Home/>)
         const imageAlt: HTMLElement = screen.getByAltText('Rounded avatar');
-        expect(imageAlt).toBeInTheDocument();
+        //We have async call in environmentStamp (voids error Cannot log after tests are done. Did you forget to wait for something async in your test?)
+        await waitFor(() => expect(imageAlt).toBeInTheDocument());
     })
 
-    test('renders links', () => {
+    test('renders links', async () => {
         render(<Home/>)
 
         const link: HTMLElement = screen.getByText(/Vercel/i);
-        expect(link).toBeInTheDocument();
+        //We have async call in environmentStamp
+        await waitFor(() => expect(link).toBeInTheDocument());
     })
 
     test('clicking on image expands it', async () => {
-        const res = await render(<Home/>);
+        const res =  render(<Home/>);
         const imageAlt: HTMLElement = screen.getByAltText('Rounded avatar');
         const parentDiv: HTMLElement = Ensure.notNull(imageAlt.parentElement);
         expect(parentDiv).not.toBeNull();
         expect(parentDiv.className).toContain("min-h-20");
         expect(parentDiv.className).not.toContain("h-screen");
+
         await userEvent.click(imageAlt as Element);
 
-        const imageAlt2 = await screen.findByAltText('Rounded avatar');
-        const parentDiv2 = Ensure.notNull(imageAlt2.parentElement);
-        expect(parentDiv2.className).toContain("h-screen");
-        // expect(imageAlt.className).toContain("h-screen");
+        //We have async call in environmentStamp
+        await waitFor(() => {
+            const imageAlt2 = screen.getByAltText('Rounded avatar');
+            const parentDiv2 = Ensure.notNull(imageAlt2.parentElement);
+            expect(parentDiv2.className).toContain("h-screen");
+            // expect(imageAlt.className).toContain("h-screen");
+        });
     });
 })
